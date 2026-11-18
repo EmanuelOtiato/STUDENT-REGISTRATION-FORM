@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Student Registration</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main class="sheet">
+    <aside class="intro">
+      <h1>Student Registration</h1>
+      <p>Register a new student for the coming term. Every field is required.</p>
+      <ul class="tips">
+        <li>Use the name exactly as it appears on the admission letter.</li>
+        <li>Admission numbers look like <strong>ADM/2026/014</strong>.</li>
+      </ul>
+    </aside>
+
+    <section class="panel">
+      <form id="regForm" novalidate>
+        <div class="field" id="field-name">
+          <label for="fullName">Full name</label>
+          <input type="text" id="fullName" name="fullName" autocomplete="name"
+                 placeholder="e.g. Amina Okafor" aria-describedby="err-name" required>
+          <p class="error" id="err-name" role="alert"></p>
+        </div>
+
+        <div class="field" id="field-admission">
+          <label for="admission">Admission number</label>
+          <input type="text" id="admission" name="admission" autocomplete="off"
+                 placeholder="e.g. ADM/2026/014" aria-describedby="err-admission" required>
+          <p class="error" id="err-admission" role="alert"></p>
+        </div>
+
+        <div class="field" id="field-course">
+          <label for="course">Course</label>
+          <select id="course" name="course" aria-describedby="err-course" required>
+            <option value="" selected disabled>Select a course</option>
+            <option>Accounting and Finance</option>
+            <option>Business Administration</option>
+            <option>Civil Engineering</option>
+            <option>Computer Science</option>
+            <option>Education</option>
+            <option>Electrical Engineering</option>
+            <option>Information Technology</option>
+            <option>Mass Communication</option>
+            <option>Nursing</option>
+          </select>
+          <p class="error" id="err-course" role="alert"></p>
+        </div>
+
+        <fieldset class="field" id="field-gender" aria-describedby="err-gender">
+          <legend>Gender</legend>
+          <div class="choices">
+            <label class="choice"><input type="radio" name="gender" value="Female"><span>Female</span></label>
+            <label class="choice"><input type="radio" name="gender" value="Male"><span>Male</span></label>
+            <label class="choice"><input type="radio" name="gender" value="Other"><span>Other</span></label>
+          </div>
+          <p class="error" id="err-gender" role="alert"></p>
+        </fieldset>
+
+        <div class="actions">
+          <button type="submit" class="btn primary">Submit</button>
+          <button type="button" class="btn secondary" id="cancelBtn">Cancel</button>
+        </div>
+      </form>
+
+      <div id="confirmation" class="confirmation" hidden tabindex="-1">
+        <h2>Registration received</h2>
+        <dl>
+          <dt>Full name</dt><dd id="out-name"></dd>
+          <dt>Admission number</dt><dd id="out-admission"></dd>
+          <dt>Course</dt><dd id="out-course"></dd>
+          <dt>Gender</dt><dd id="out-gender"></dd>
+        </dl>
+        <button type="button" class="btn primary" id="againBtn">Register another student</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
